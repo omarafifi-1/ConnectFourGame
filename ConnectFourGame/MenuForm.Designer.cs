@@ -28,18 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ActiveCaption;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ControlText;
+            button1.Location = new Point(720, 212);
+            button1.Name = "button1";
+            button1.Size = new Size(201, 68);
+            button1.TabIndex = 0;
+            button1.Text = "Play VS AI";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Yellow;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
+            button2.Location = new Point(720, 313);
+            button2.Name = "button2";
+            button2.Size = new Size(201, 68);
+            button2.TabIndex = 1;
+            button2.Text = "Play VS Friend";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Salmon;
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
+            button3.Location = new Point(720, 414);
+            button3.Name = "button3";
+            button3.Size = new Size(201, 68);
+            button3.TabIndex = 2;
+            button3.Text = "Exit";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // MenuForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Zoom;
+            ClientSize = new Size(1024, 576);
+            Controls.Add(button3);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "MenuForm";
-            Text = "Form1";
+            Text = "Connect 4";
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button button1;
+        private Button button2;
+        private Button button3;
     }
 }
