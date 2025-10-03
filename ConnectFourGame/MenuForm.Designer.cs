@@ -36,35 +36,37 @@
             // 
             // button1
             // 
-            button1.BackColor = SystemColors.ActiveCaption;
+            button1.BackColor = Color.CornflowerBlue;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(720, 212);
+            button1.Location = new Point(760, 254);
             button1.Name = "button1";
             button1.Size = new Size(201, 68);
             button1.TabIndex = 0;
             button1.Text = "Play VS AI";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.BackColor = Color.Yellow;
+            button2.BackColor = Color.Gold;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
-            button2.Location = new Point(720, 313);
+            button2.Location = new Point(760, 355);
             button2.Name = "button2";
             button2.Size = new Size(201, 68);
             button2.TabIndex = 1;
             button2.Text = "Play VS Friend";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
-            button3.BackColor = Color.Salmon;
+            button3.BackColor = Color.Crimson;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold);
-            button3.Location = new Point(720, 414);
+            button3.Location = new Point(760, 456);
             button3.Name = "button3";
             button3.Size = new Size(201, 68);
             button3.TabIndex = 2;
@@ -78,7 +80,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
-            ClientSize = new Size(1024, 576);
+            ClientSize = new Size(1103, 630);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);

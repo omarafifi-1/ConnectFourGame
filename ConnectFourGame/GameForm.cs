@@ -12,9 +12,17 @@ namespace ConnectFourGame
 {
     public partial class GameForm : Form
     {
-        public GameForm()
+        private Form MenuForm;
+        public GameForm(string Mode, Form Menu)
         {
             InitializeComponent();
+            this.MenuForm = Menu;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.MenuForm.Show();
+            this.Close();
         }
     }
 }
