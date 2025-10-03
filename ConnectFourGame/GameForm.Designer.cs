@@ -73,6 +73,10 @@
             pictureBox1 = new PictureBox();
             pictureBox42 = new PictureBox();
             pictureBox41 = new PictureBox();
+            button2 = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox40).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox39).BeginInit();
@@ -124,9 +128,9 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ControlText;
-            button1.Location = new Point(991, 576);
+            button1.Location = new Point(917, 440);
             button1.Name = "button1";
-            button1.Size = new Size(100, 39);
+            button1.Size = new Size(136, 70);
             button1.TabIndex = 1;
             button1.Text = "Back";
             button1.UseVisualStyleBackColor = false;
@@ -618,17 +622,77 @@
             pictureBox41.TabStop = false;
             pictureBox41.Click += Cell_Click;
             // 
+            // button2
+            // 
+            button2.BackColor = Color.CornflowerBlue;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.ForeColor = SystemColors.ControlText;
+            button2.Location = new Point(917, 341);
+            button2.Name = "button2";
+            button2.Size = new Size(136, 70);
+            button2.TabIndex = 3;
+            button2.Text = "Play Again";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Gainsboro;
+            label1.Font = new Font("Comic Sans MS", 26.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Crimson;
+            label1.Location = new Point(876, 132);
+            label1.Name = "label1";
+            label1.Size = new Size(213, 50);
+            label1.TabIndex = 4;
+            label1.Text = "Player 1: 0";
+            label1.Visible = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.Gainsboro;
+            label2.Font = new Font("Comic Sans MS", 26.25F, FontStyle.Bold | FontStyle.Italic);
+            label2.ForeColor = Color.Yellow;
+            label2.Location = new Point(876, 204);
+            label2.Name = "label2";
+            label2.Size = new Size(213, 50);
+            label2.TabIndex = 5;
+            label2.Text = "Player 2: 0";
+            label2.Visible = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Gainsboro;
+            label3.Font = new Font("Comic Sans MS", 26.25F, FontStyle.Bold | FontStyle.Italic);
+            label3.ForeColor = Color.Yellow;
+            label3.Location = new Point(876, 204);
+            label3.Name = "label3";
+            label3.Size = new Size(118, 50);
+            label3.TabIndex = 6;
+            label3.Text = "AI: 0";
+            label3.Visible = false;
+            // 
             // GameForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1103, 630);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(button2);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(button1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "GameForm";
-            Text = "Connect 4";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Connect Four";
             tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox40).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox39).EndInit();
@@ -673,6 +737,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox42).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox41).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -721,5 +786,9 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private PictureBox pictureBox42;
+        private Button button2;
+        private Label label1;
+        private Label label2;
+        private Label label3;
     }
 }

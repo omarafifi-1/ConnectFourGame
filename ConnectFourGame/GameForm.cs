@@ -16,6 +16,8 @@ namespace ConnectFourGame
         private Form MenuForm;
         private Logic GameLogic;
         private string GameMode;
+        private int Player1Score = 0;
+        private int Player2Score = 0;
         public GameForm(string Mode, Form Menu)
         {
             InitializeComponent();
@@ -28,6 +30,18 @@ namespace ConnectFourGame
                 {
                     MakeCellCircular(cell);
                 }
+            }
+            if (Mode == "VS Player")
+            {
+                this.Text = "Connect Four - Player vs Player";
+                label1.Visible = true;
+                label2.Visible = true;
+            }
+            else
+            {
+                this.Text = "Connect Four - Player vs AI";
+                label1.Visible = true;
+                label3.Visible = true;
             }
         }
 
@@ -53,18 +67,29 @@ namespace ConnectFourGame
             if (GameLogic.PlacePiece(Column))
             {
                 UpdateBoard();
-                if (GameLogic.IsGameOver)
+                if(GameMode == "VS Player")
                 {
-                    GameLogic.CurrentPlayer = (GameLogic.CurrentPlayer == 1) ? 2 : 1;
-                    MessageBox.Show($"Player {GameLogic.CurrentPlayer} Won", "Game Over");
-                    this.MenuForm.Show();
-                    this.Close();
-                }
-                else if (GameLogic.CheckForDraw())
-                {
-                    MessageBox.Show("It's a Draw!", "Game Over");
-                    this.MenuForm.Show();
-                    this.Close();
+                    if (GameLogic.IsGameOver)
+                    {
+                        GameLogic.CurrentPlayer = (GameLogic.CurrentPlayer == 1) ? 2 : 1;
+                        MessageBox.Show($"Player {GameLogic.CurrentPlayer} Won", "Game Over");
+                        tableLayoutPanel1.Enabled = false;
+                        if (GameLogic.CurrentPlayer == 1)
+                        {
+                            Player1Score++;
+                            label1.Text = $"Player 1: {Player1Score}";
+                        }
+                        else
+                        {
+                            Player2Score++;
+                            label2.Text = $"Player 2: {Player2Score}";
+                        }
+
+                    }
+                    else if (GameLogic.CheckForDraw())
+                    {
+                        MessageBox.Show("It's a Draw!", "Game Over");
+                    }
                 }
             }
         }
@@ -91,6 +116,13 @@ namespace ConnectFourGame
                     }
                 }
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.GameLogic = new Logic();
+            UpdateBoard();
+            tableLayoutPanel1.Enabled = true;
         }
     }
 }

@@ -89,7 +89,8 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MenuForm";
-            Text = "Connect 4";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Connect Four";
             ResumeLayout(false);
         }
 
