@@ -678,7 +678,7 @@
             // GameForm
             // 
             //AutoScaleDimensions = new SizeF(7F, 15F);
-            //AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1103, 630);
             Controls.Add(label3);

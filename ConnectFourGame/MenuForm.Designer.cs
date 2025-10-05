@@ -77,7 +77,7 @@
             // MenuForm
             // 
             //AutoScaleDimensions = new SizeF(7F, 15F);
-            //AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = Properties.Resources.C4BG;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(1103, 630);
