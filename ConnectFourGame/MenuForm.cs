@@ -4,6 +4,7 @@ namespace ConnectFourGame
     {
         public MenuForm()
         {
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             InitializeComponent();
             this.DoubleBuffered = true;
         }

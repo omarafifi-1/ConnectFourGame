@@ -23,6 +23,7 @@ namespace ConnectFourGame
         
         public GameForm(string Mode, Form Menu)
         {
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             InitializeComponent();
             this.DoubleBuffered = true;
             this.GameMode = Mode;
