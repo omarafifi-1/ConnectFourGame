@@ -9,12 +9,13 @@ namespace ConnectFourGame
     public class Logic
     {
         enum CellState { Empty = 0, Red = 1, Yellow = 2 }
-        enum GameMode { PvP = 0, PvE = 1 }
         public int[,] Board = new int[6, 7];
         public int CurrentPlayer = 1;
         public bool IsGameOver = false;
         public int Count = 0;
-        public Logic() 
+        public Random random = new Random();
+
+        public Logic()
         {
             for (int r = 0; r < 6; r++)
             {
@@ -24,6 +25,7 @@ namespace ConnectFourGame
                 }
             }
         }
+
         public bool PlacePiece(int column)
         {
             if (IsGameOver || column < 0 || column > 6)
@@ -32,7 +34,7 @@ namespace ConnectFourGame
             }
             else
             {
-                for (int row = 0; row < 6; row++)
+                for (int row = 5; row >= 0; row--)
                 {
                     if (Board[row, column] == (int)CellState.Empty)
                     {
@@ -57,17 +59,17 @@ namespace ConnectFourGame
 
         public bool CheckWin(int row, int column)
         {
-            
+
             int player = Board[row, column];
 
             // Horizontal Check
             int count = 0;
-            for(int c = 0; c < 7; c++)
+            for (int c = 0; c < 7; c++)
             {
-                if(Board[row, c] == player)
+                if (Board[row, c] == player)
                 {
                     count++;
-                    if(count >= 4) return true;
+                    if (count >= 4) return true;
                 }
                 else
                 {
@@ -77,12 +79,12 @@ namespace ConnectFourGame
 
             // Vertical Check
             count = 0;
-            for(int r = 0; r < 6; r++)
+            for (int r = 0; r < 6; r++)
             {
-                if(Board[r, column] == player)
+                if (Board[r, column] == player)
                 {
                     count++;
-                    if(count >= 4) return true;
+                    if (count >= 4) return true;
                 }
                 else
                 {
@@ -92,16 +94,16 @@ namespace ConnectFourGame
 
             // Main Diagonals Check 
             count = 0;
-            for(int d = -3; d <= 3; d++)
+            for (int d = -3; d <= 3; d++)
             {
                 int r = row + d;
                 int c = column + d;
-                if(r >= 0 && r < 6 && c >= 0 && c < 7)
+                if (r >= 0 && r < 6 && c >= 0 && c < 7)
                 {
-                    if(Board[r, c] == player)
+                    if (Board[r, c] == player)
                     {
                         count++;
-                        if(count >= 4) return true;
+                        if (count >= 4) return true;
                     }
                     else
                     {
@@ -112,16 +114,16 @@ namespace ConnectFourGame
 
             // Reverse Diagonals Check
             count = 0;
-            for(int d = -3; d <= 3; d++)
+            for (int d = -3; d <= 3; d++)
             {
                 int r = row - d;
                 int c = column + d;
-                if(r >= 0 && r < 6 && c >= 0 && c < 7)
+                if (r >= 0 && r < 6 && c >= 0 && c < 7)
                 {
-                    if(Board[r, c] == player)
+                    if (Board[r, c] == player)
                     {
                         count++;
-                        if(count >= 4) return true;
+                        if (count >= 4) return true;
                     }
                     else
                     {
@@ -131,5 +133,74 @@ namespace ConnectFourGame
             }
             return false;
         }
-    }
+    
+        private bool CanPlacePiece(int column)
+        {
+            if (column < 0 || column > 6) return false;
+            return Board[0, column] == (int)CellState.Empty;
+        }
+
+        private int GetLowestEmptyRow(int column)
+        {
+            for (int row = 5; row >= 0; row--)
+            {
+                if (Board[row, column] == (int)CellState.Empty)
+                {
+                    return row;
+                }
+            }
+            return -1;
+        }
+        public int GetAIMove()
+        {
+            // Check For AI Win
+            for (int col = 0; col < 7; col++)
+            {
+                if (CanPlacePiece(col))
+                {
+                    int row = GetLowestEmptyRow(col);
+                    Board[row, col] = 2;
+                    if (CheckWin(row, col))
+                    {
+                        Board[row, col] = (int)CellState.Empty;
+                        return col;
+                    }
+                    Board[row, col] = (int)CellState.Empty;
+                }
+            }
+
+            // Check For Block Player Win
+            for (int col = 0; col < 7; col++)
+            {
+                if (CanPlacePiece(col))
+                {
+                    int row = GetLowestEmptyRow(col);
+                    Board[row, col] = 1;
+                    if (CheckWin(row, col))
+                    {
+                        Board[row, col] = (int)CellState.Empty;
+                        return col;
+                    }
+                    Board[row, col] = (int)CellState.Empty;
+                }
+            }
+
+            // List of Valid Moves
+            List<int> validColumns = new List<int>();
+            for (int col = 0; col < 7; col++)
+            {
+                if (CanPlacePiece(col))
+                {
+                    validColumns.Add(col);
+                }
+            }
+
+            if (validColumns.Count > 0)
+            {
+                return validColumns[random.Next(validColumns.Count)];
+            }
+
+            return -1;
+        }
+    } 
 }
