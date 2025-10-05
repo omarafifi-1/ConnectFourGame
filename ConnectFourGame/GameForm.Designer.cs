@@ -126,7 +126,7 @@
             // 
             button1.BackColor = Color.Crimson;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ControlText;
             button1.Location = new Point(917, 440);
             button1.Name = "button1";
@@ -626,7 +626,7 @@
             // 
             button2.BackColor = Color.CornflowerBlue;
             button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button2.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button2.ForeColor = SystemColors.ControlText;
             button2.Location = new Point(917, 341);
             button2.Name = "button2";
@@ -640,7 +640,7 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Gainsboro;
-            label1.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Comic Sans MS", 26.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Crimson;
             label1.Location = new Point(876, 132);
             label1.Name = "label1";
@@ -653,7 +653,7 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Gainsboro;
-            label2.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold | FontStyle.Italic);
+            label2.Font = new Font("Comic Sans MS", 26.25F, FontStyle.Bold | FontStyle.Italic);
             label2.ForeColor = Color.Yellow;
             label2.Location = new Point(876, 204);
             label2.Name = "label2";
@@ -666,7 +666,7 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Gainsboro;
-            label3.Font = new Font("Segoe UI", 26.25F, FontStyle.Bold | FontStyle.Italic);
+            label3.Font = new Font("Comic Sans MS", 26.25F, FontStyle.Bold | FontStyle.Italic);
             label3.ForeColor = Color.Yellow;
             label3.Location = new Point(876, 204);
             label3.Name = "label3";
