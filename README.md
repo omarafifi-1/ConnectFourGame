@@ -10,6 +10,10 @@
 - Turn-based gameplay with alternating colors
 - Score tracking for Player 1 vs Player 2
 
+## Menu UI
+
+![Connect Four Menu Interface](/ConnectFourGame/MenuUI.png)
+
 ## 🐛 Known Issues
 
 - None currently reported
